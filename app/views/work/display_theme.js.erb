@@ -1,0 +1,85 @@
+var imageData = '<%= raw @image_data %>';
+var valuesQty = '<%=@image_data[:values_qty] %>';
+$('.left_controls span.total_values h2.total').append().html(valuesQty);
+
+var selectedTheme = '<%= @image_data[:theme] %>';
+
+if( selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == "") {
+  $('.img-left-side').css({"display": "none"});
+  $('.img-right-side').css({"display": "none"});
+  $('.imgage .image_display .image_diag').css({"display": "none"});
+}
+else {
+  $('.img-left-side').css({"display": "block"});
+  $('.img-right-side').css({"display": "block"});
+  $('.imgage .image_display .image_diag').css({"display": "block"});
+}
+
+$('.image_display h2.up-theme').append().html(selectedTheme);
+
+$('.selected_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
+
+var imageCurrentIndex = '<%= @image_data[:index] %>';
+var oneImageName = '<%= @image_data[:name] %>';
+var oneImageFile = '<%= @image_data[:file] %>';
+var oneImageId = '<%= @image_data[:image_id] %>';
+var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
+var selectedThemeId = '<%= @image_data[:theme_id] %>';
+
+$('.image_display h2.up').append().html(oneImageName);
+
+var pathImage = "assets/pictures/" + oneImageFile;
+$(".img-center").attr({title: "Selected image"});
+$(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "selected Image"});
+
+$('.img-right-side').click(function(event) {
+  event.stopImmediatePropagation();
+
+  $.ajax({
+    type: "get",
+    url: "api/next_image",
+    data: { index: imageCurrentIndex,
+      theme_id: selectedThemeId,
+      length: themeImagesSize },
+    dataType: 'json'
+  }).done(function (data_return) {
+    imageCurrentIndex = data_return.new_image_index;
+    oneImageName = data_return.name;
+    oneImageFile = data_return.file;
+    oneImageId = data_return.image_id;
+    $('.image_display h2.up').append().html(oneImageName);
+    var pathImage = "assets/pictures/" + oneImageFile;
+    $(".img-center").attr({title: "Selected image" });
+    $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
+  })
+    .fail(function (data_return) {
+      console.log("error: data_return = " + data_return);
+      });
+});
+
+
+$('.img-left-side').click(function(event) {
+  event.stopImmediatePropagation();
+
+  $.ajax({
+    type: "get",
+    url: "api/prev_image",
+    data: { index: imageCurrentIndex,
+      theme_id: selectedThemeId,
+      length: themeImagesSize },
+    dataType: 'json'
+  }).done(function (data_return) {
+    console.log("success1c:  " + data_return.notice );
+    imageCurrentIndex = data_return.new_image_index;
+    oneImageName = data_return.name;
+    oneImageFile = data_return.file;
+    oneImageId = data_return.image_id;
+    $('.image_display h2.up').append().html(oneImageName);
+    var pathImage = "assets/pictures/" + oneImageFile;
+    $(".img-center").attr({title: "Selected image" });
+    $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
+  })
+    .fail(function (data_return) {
+      console.log("error: data_return = " + data_return);
+      });
+});

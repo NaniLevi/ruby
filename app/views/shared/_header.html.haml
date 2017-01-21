@@ -1,0 +1,10 @@
+.header
+  %div{:style=>"background-color:lavender; padding:25px; padding-left:5%;"}
+    =link_to t('home'), root_path
+    = link_to t('Contacts'), contacts_path
+    = link_to t('about'), about_path
+    = link_to t('help'), help_path
+    .locale
+    .locale-current
+    %b
+      = I18n.locale

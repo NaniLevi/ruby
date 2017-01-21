@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title RUBY
+    = csrf_meta_tags
+  %body{:style=>"font-family:Comic Sans MS; color:navy;"}
+    = render 'shared/header'
+    = yield
+    = render 'shared/footer'
+

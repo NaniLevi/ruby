@@ -1,0 +1,81 @@
+ru:
+#  test: Привет!
+  shared:
+    header:
+      logo_title: "Делитесь своими эмоциями"
+      home: "Главная"
+      help: "Помощь"
+      sign_in: "Войти"
+      sign_out: "Выйти"
+      person: "Я"
+      profile: "Моя страница"
+      settings: "Настройки"
+    footer:
+      about: "О сайте"
+      contacts: "Контакты"
+
+  users:
+    form:
+      name: "Имя"
+      email: "Email"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      create_account: "Создать мой аккаунт"
+
+    new:
+      new_user_sign_up: "Регистрация нового пользователя"
+      back: "Назад"
+
+    show:
+      work: "Экспертиза"
+      email: "Email"
+
+  sessions:
+      new:
+        sign_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        email: "E-mail"
+        password: "Пароль"
+        new_user?: "Новый пользователь?"
+
+  work:
+
+      index:
+        def_select_theme: "Выберите тему для оценки"
+
+      button_theme_select:
+        select_theme_bt: "выбрать тему"
+
+
+      button_list_results:
+        results_list: "результаты"
+
+      choose_theme_from_arr:
+        select_theme: "выберите тему"
+
+      images:
+        common_value: "средняя оценка"
+        total_values: "всего оценок"
+
+        make_decision: "Выберите свою оценку"
+        save_decision: "сохранить"
+
+        share_opinion: "Поделись своим мнением"
+
+
+        # titles
+        theme_name: "Тема"
+
+      display_theme:
+        select_theme: "Выберите тему для оценки"
+
+
+      results_list:
+        no_values: "Результаты по выбранной теме отсутствуют..."
+        select_theme: "Выберите другую тему"
+        return_to_main: "На главную"
+
+        # titles
+        page_title: "Перейдите к выбору темы"
+
+

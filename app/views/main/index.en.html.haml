@@ -1,0 +1,15 @@
+- content_for(:title, "Index")
+
+.container
+  -#%p
+  -#  =@test
+
+  .center.jumbotron
+    %h1 Welcome to the Experteese
+    %h2
+      Ruby on Rails sample application
+
+    - if signed_in?
+      = link_to "Proceed to work!", work_path, class: "btn btn-lg btn-primary"
+    -else
+      = link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary"
