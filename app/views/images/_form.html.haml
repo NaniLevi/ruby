@@ -8,12 +8,15 @@
 
   .field
     = f.label :name
+    %br
     = f.text_field :name
   .field
     = f.label :file
+    %br
     = f.text_field :file
   .field
     = f.label :ave_value
+    %br
     = f.text_field :ave_value
-  .actions
+    %div{:style=>"padding-top:10px; padding-bottom:25px;"}
     = f.submit 'Save'

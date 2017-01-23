@@ -16,12 +16,12 @@ module Api
         else
           format.html {render display_theme_path, status: :successfully}
           format.json {render json:{new_image_index: next_image_data[:index],
-                                  name: next_image_data[:name],
-                                  file: next_image_data[:file],
-                                  image_id: next_image_data[:image_id],
-                                  value: next_image_data[:value],
-                                  status: :successfully,
-                                  notice: 'Successfully listed to next'} }
+                                    name: next_image_data[:name],
+                                    file: next_image_data[:file],
+                                    image_id: next_image_data[:image_id],
+                                    value: next_image_data[:value],
+                                    status: :successfully,
+                                    notice: 'Successfully listed to next'} }
         end
       end
     end
@@ -63,5 +63,29 @@ module Api
       index > 0 ? new_index -= 1: new_index = length-1
       new_index
     end
+
+    def save_value
+      value = params[:value].to_i
+      new_value_data = { user_id: current_user.id, image_id: params[:image_id].to_i, value: value }
+      valued_image_data = Image.value_and_update(new_value_data)
+
+      respond_to do |format|
+        if value.blank?
+          format.html { render nothing: true, status: :unprocessable_entity }
+        else
+          format.json { render json:  {
+              user_value:       value,
+              values_qty:       valued_image_data[:values_qty],
+              image_id:         valued_image_data[:image_id],
+              user_valued:      valued_image_data[:user_valued],
+              common_ave_value: valued_image_data[:common_ave_value],
+              value:            valued_image_data[:value],
+              status:           :successfully,
+              notice:           'Successfully saved'}
+          }
+        end
+      end
+    end
+
   end
 end

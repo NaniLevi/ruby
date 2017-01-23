@@ -5,20 +5,19 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label t('.name')
-    %br
-    = f.text_field :name
-  .field
-    = f.label t('.email')
-    %br
-    = f.text_field :email
-  .field
-    = f.label t('.password')
-    %br
-    = f.password_field :password
-
-    %div{:style=>"padding-top:10px; padding-bottom:25px;"}
-      = f.submit t(".create_account")
+  %div{:style=>"background-color:#C7D0CC;  box-shadow:0 0 15px #0E294B; padding:50px;  opacity:0.85; width:300px;"}
+    .field
+      = f.label t('.name')
+      %br
+      = f.text_field :name
+    .field
+      = f.label t('.email')
+      %br
+      = f.text_field :email
+    .field
+      = f.label t('.password')
+      %br
+      = f.password_field :password
+      %div{:style=>"padding-top:10px;"}
+        = f.submit t(".create_account")
 

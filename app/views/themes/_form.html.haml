@@ -1,16 +1,18 @@
 = form_for @theme do |f|
   - if @theme.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@theme.errors.count, "error")} prohibited this theme from being saved:"
+      %h4= "#{pluralize(@theme.errors.count, "error")} prohibited this theme from being saved:"
       %ul
         - @theme.errors.full_messages.each do |msg|
           %li= msg
 
   .field
     = f.label :name
+    %br
     = f.text_field :name
   .field
     = f.label :qty_items
+    %br
     = f.number_field :qty_items
-  .actions
+    %div{:style=>"padding-top:10px; padding-bottom:25px;"}
     = f.submit 'Save'

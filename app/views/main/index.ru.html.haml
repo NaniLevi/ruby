@@ -1,14 +1,9 @@
 - content_for(:title,  "Index")
 
-.container
-  .center.jumbotron
+.container{:style=>"text-align:center;  height:400px;"}
     %h2 Добро пожаловать в Experteese
-    %h3
-      Пример приложения на Ruby on Rails.
-
+    %h3Пример приложения на Ruby on Rails.
     %p
-    - if signed_in?
-      = link_to "Экспертиза", work_path
-    - else
+        = link_to "Экспертиза", work_path
     %p
-      = link_to "Регистрация", signup_path
+        = link_to "Регистрация", signup_path

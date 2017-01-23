@@ -4,8 +4,9 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title RUBY
     = csrf_meta_tags
-  %body{:style=>"font-family:Comic Sans MS; color:navy;"}
+  %body{:style=>"background-image: url(/assets/bg.jpg); background-size: cover; opacity:0.8; font-size:20px; font-family:Comic Sans MS; color:navy;"}
     = render 'shared/header'
     = yield
     = render 'shared/footer'
+
 

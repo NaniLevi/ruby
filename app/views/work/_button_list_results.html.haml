@@ -1,0 +1,5 @@
+%div{:style=>"height:250px;"}
+  %button{:style=>"margin:20px; padding:15px; width:300px; box-shadow:0 0 5px #0E294B; background-color:#B0B7C6;"}
+    -#%a{"data-remote" => "true", :format => "js", :href => "results_list", 'data-target' => '#overlay_m',  :onclick => "overlay()", :title => "List all your diagnosys results"} list results
+    %a{ :href => "results_list",  :title => "List all your diagnosys results"}
+    = t('.results_list')

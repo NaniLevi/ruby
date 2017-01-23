@@ -1,1 +1,41 @@
-
+.container{:style=>"padding-left:50px;"}
+  -#=t('test')
+  .image
+    .row
+      .col-md-3
+        .left_controls
+          .select_theme
+        .image_display
+          = render 'work/button_theme_select', locale: @current_locale
+          %h4{:title => t('.theme_name'), :style=>"margin-top:-10px; margin-left:20px;"}
+            #{@selected_theme}
+            %br
+            #{@selected_image_name}
+            .img-left-side
+              %h4{:title => "list to previous image"}
+                %i.fa.fa-chevron-circle-left.strong
+            %div{:style=>"box-shadow:0 0 15px #0E294B; width:700px; height:500px; "}
+              %img{:alt => "Default Image", :src => 'assets/Муссон.jpg', :title => "Default Image", :style =>"width:700px; height:500px;"}
+                .image_user_value{:title => "Expert value"}
+            .img-right-side
+              %h4{:title => "list to next image"}
+                %i.fa.fa-chevron-circle-right
+          .row.diag
+            .col-md-12
+              .image_diag
+                #chosen_value 50
+                %h2.down{:title => "Value scale"}
+                  = t('.make_decision')
+                %button.button__results.save{:style=>"margin:20px; padding:15px; width:300px; box-shadow:0 0 5px #0E294B; background-color:#B0B7C6;"}
+                  %a{'data-remote' => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+                    = t('.save_decision')
+                %br
+                %span.left 5%
+                #slider
+                  %input#slide{:max => "100", :min => "5", :value => "50",
+                             :onchange => "updateSlider(this.value)",
+                             :step => "5", :type => "range"}
+                %span.right 100%
+                %br
+                %br
+                = render 'work/button_list_results'

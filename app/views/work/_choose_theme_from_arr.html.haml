@@ -1,7 +1,10 @@
-.form_select
-  = form_tag("/work/display_theme", remote: true, :format => "js") do
-    = select_tag :theme,
-      options_for_select(@themes, selected: @selected_theme),
-      prompt: 'select_theme',
-      onchange: "$(this).parent('form').submit();",
-      formats: [ :js ]
+.container
+  .row
+    .form_select
+      = form_tag("/display_theme", remote: true,  :format => "js") do
+        = select_tag :theme,
+          options_for_select(@themes, selected: @selected_theme),
+          prompt: t('.select_theme'),
+          onchange:  "$(this).parent('form').submit();",
+          formats: [ :js ],
+          class: 'form-control'

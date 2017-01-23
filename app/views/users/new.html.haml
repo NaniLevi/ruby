@@ -1,10 +1,6 @@
 -provide(:title, "Sign up")
-
-.container
-  %h1= t('.new_user_sign_up')
-
+.container{:style=>"margin:50px;"}
+  %h4{:style=>"margin-left:30px;"}=t('.new_user_sign_up')
   = render 'form'
-
 -#= link_to 'Back', users_path
-
   = link_to t('.back'), root_path, :class => "ui_link"

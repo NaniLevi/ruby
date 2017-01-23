@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   # match 'work/index', to: 'work#index', via: 'get'
   # match 'work', to: 'work#index', via: 'get'
 
-
-
   # 'get' = :get
 
   match 'work/choose_theme', to: 'work#choose_theme', via: :get, :as => 'choose_theme'
@@ -47,6 +45,9 @@ Rails.application.routes.draw do
   match 'signin',     to: 'sessions#new',      via: 'get'
   match 'signout',    to: 'sessions#destroy',  via: 'delete'
 
+  match 'results_list',     to: 'work#results_list', via: :get
+
+  match 'save_value',       to: 'api/api#save_value',   via: :get
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

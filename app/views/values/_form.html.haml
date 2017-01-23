@@ -8,12 +8,15 @@
 
   .field
     = f.label :user_id
+    %br
     = f.number_field :user_id
   .field
     = f.label :image_id
+    %br
     = f.number_field :image_id
   .field
     = f.label :value
+    %br
     = f.number_field :value
-  .actions
+    %div{:style=>"padding-top:10px; padding-bottom:25px;"}
     = f.submit 'Save'

@@ -1,9 +1,13 @@
-%footer.footer
-  .footer_menu
-    %div{:style=>"background-color:lavender; padding-left:5%;"}
+%footer
+  %div{:style=>"position:fixed; top:580px; width:98%; opacity:0.9; background-color:#9DA1AA; padding:5px;"}
+    %div{:style => "float:right; margin:50px; margin-bottom:50px; margin-top:-50px;" }
+      = t('.share_opinion')
+      %a{:href =>"http://www.brainlook.org"}
+      %img{:alt => "Share to Brainlook", :src => "assets/BL.png", :title => "Brainlook", :style=>"width:100px;" }
+      %p{:title => "Brainlook"}
+    %div{:style=>"text-align:center; text-shadow:0 0 3px  #fff; letter-spacing:3px; line-height:3;"}
       =link_to t('home'), root_path
       = link_to t('Contacts'), contacts_path
       = link_to t('about'), about_path
       = link_to t('help'), help_path
       %br
-        2017 .RUBY. = 'Copyright (c)'All rights reserved
