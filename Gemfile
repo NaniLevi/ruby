@@ -1,14 +1,7 @@
 source 'https://rubygems.org'
 
-#ruby '2.3.1'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-
-# Use postgresql as the database for Active Record
-#gem 'pg', '~> 0.18'
-gem 'activerecord-reset-pk-sequence'
 
 # # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -94,7 +87,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'activerecord-reset-pk-sequence'
 group :test do
 
   # For active record imitation in tests
@@ -121,7 +114,7 @@ group :test do
   gem 'simplecov', :require => false #, :group => :test
 
 end
-
+gem 'rake', '~> 12.0.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -137,6 +130,8 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 # gem 'actionpack-action_caching'
 
 group :production do
+  # Use postgresql as the database for Active Record
   # For Heroku deployment
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end

@@ -38,13 +38,13 @@ Image.create([{name: 'Bella Principessa', file: 'Bella Principessa.jpg', theme_i
               {name: 'Портрет матери', file: 'Портрет матери.jpg', theme_id:3 },
               {name: 'Портрет раввина', file: 'Портрет раввина.jpg', theme_id:3 },
               {name: 'Портрет старика', file: 'Портрет старика.jpg', theme_id:3 },
-              {name: 'Улыбающаяся', file: 'Улыбающаяся.jpg', theme_id:3 }
+              {name: 'Улыбающаяся', file: 'Улыбающаяся.jpg', theme_id:3 }])
 
 Theme.delete_all
 Theme.reset_pk_sequence
 Theme.create([{name: "Leonardo Da Vinci"},    #1
               {name: "Raffaello Santi"},                  #2
-              {name: "Rembrandt van Rijn"}],          #3
+              {name: "Rembrandt van Rijn"}])        #3
 
 Value.delete_all
 Value.reset_pk_sequence

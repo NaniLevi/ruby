@@ -5,7 +5,7 @@ class WorkController < ApplicationController
     @images_count = Image.all.count
     # @selected_theme = "Select theme to leave your answer"
     @selected_theme = t(".def_select_theme")
-    @selected_image_name = 'Муссон'
+    @selected_image_name = 'K акрополю'
     @values_qty = Value.all.count
     @current_locale = I18n.locale
     session[:selected_theme_id] = @selected_theme # to display nothing
@@ -24,11 +24,11 @@ class WorkController < ApplicationController
 
     current_user_id = current_user.id
 
-    if params[:theme] == "-----"
+    if params[:theme] == "-----"#.blank?
       theme = "Select theme to leave your answer"
       theme_id = 1
       values_qty = Value.all.count.round
-      data = { index: 0, name: 'Муссон', values_qty: values_qty, file: 'Муссон.jpg', image_id: 4, current_user_id: current_user_id, user_valued: false,
+      data = { index: 0, name: 'K акрополю', values_qty: values_qty, file: 'assets/facade.jpg', current_user_id: current_user_id, user_valued: false,
                common_ave_value: 0, value: 0 }
     else
       theme = params[:theme]
