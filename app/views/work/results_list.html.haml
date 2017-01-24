@@ -1,17 +1,8 @@
--#/**
--# * Created by aleks_i on 25.03.16.
--# */
-
-.-{ title: t(".page_title")}
-
-  - if @composite_results.blank?
-    %table{ :style => "table-layout: auto; title: 'No Values results...';" }
-      .results
-        %h2=  t(".no_values")
-        %h2=  t(".select_theme")
-        -#%tr
-          -#%td.left.grey.italic
-          -#No Values results...
+- if @composite_results.blank?
+  %table{ :style => "table-layout: auto; title: 'No Values results...';" }
+    .results
+      %h2=  t(".no_values")
+      %h2=  t(".select_theme")
     %br
     %hr
   - else
@@ -22,14 +13,8 @@
         %th.name
           Image name
         %th Image
-        -#%th user_id
         %th Value
-        -#%th Harmony, %
-        -#%th hue
-        -#%th sat
-        -#%th light
         %th date
-        -#%th delta_ave_composite
 
       -#- @composite_results.each do |composite_diag|
       - @composite_results_paged.each do |composite_diag|

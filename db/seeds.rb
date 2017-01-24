@@ -42,9 +42,9 @@ Image.create([{name: 'Bella Principessa', file: 'Bella Principessa.jpg', theme_i
 
 Theme.delete_all
 Theme.reset_pk_sequence
-Theme.create([{name: "Leonardo Da Vinci"},    #1
-              {name: "Raffaello Santi"},                  #2
-              {name: "Rembrandt van Rijn"}])        #3
+Theme.create([{name: "Leonardo Da Vinci"},
+              {name: "Raffaello Santi"},
+              {name: "Rembrandt van Rijn"}])
 
 Value.delete_all
 Value.reset_pk_sequence

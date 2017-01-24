@@ -1,2 +1,7 @@
-%h1 Work#choose_theme
-%p Find me in app/views/work/choose_theme.html.haml
+%div{:style=>"padding:100px;"}
+  = form_tag("/display_theme", remote: true,  :format => "js") do
+    = select_tag :theme,
+      options_for_select(@themes, selected: @selected_theme),
+      prompt: t('.select_theme'),
+      onchange:  "$(this).parent('form').submit();",
+      formats: [ :js ]

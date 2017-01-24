@@ -2,19 +2,18 @@ var imageData = '<%= raw @image_data %>';
 var valuesQty = '<%=@image_data[:values_qty] %>';
 $('.left_controls span.total_values h2.total').append().html(valuesQty);
 
+// show theme
 var selectedTheme = '<%= @image_data[:theme] %>';
 
 if( selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == "") {
     $('.img-left-side').css({"display": "none"});
     $('.img-right-side').css({"display": "none"});
     $('.imgage .image_display .image_diag').css({"display": "none"});
-}
-else {
+} else {
     $('.img-left-side').css({"display": "block"});
     $('.img-right-side').css({"display": "block"});
     $('.imgage .image_display .image_diag').css({"display": "block"});
 }
-
 var userValuedImage = '<%= @image_data[:user_valued] %>';
 
 if(userValuedImage == 1){
@@ -38,8 +37,10 @@ console.log("3d IN display_theme: currentUserId = " + currentUserId);
 
 $('.image_display h2.up-theme').append().html(selectedTheme);
 
+//restore button
 $('.selected_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
 
+// get data from controller
 var imageCurrentIndex = '<%= @image_data[:index] %>';
 var oneImageName = '<%= @image_data[:name] %>';
 var oneImageFile = '<%= @image_data[:file] %>';
@@ -53,6 +54,7 @@ var pathImage = "assets/pictures/" + oneImageFile;
 $(".img-center").attr({title: "Selected image"});
 $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "selected Image"});
 
+// AJAX call to next image list
 $('.img-right-side').click(function(event) {
     event.stopImmediatePropagation();
 
@@ -95,7 +97,7 @@ $('.img-right-side').click(function(event) {
         });
 });
 
-
+// AJAX call to previous image list
 $('.img-left-side').click(function(event) {
     event.stopImmediatePropagation();
 

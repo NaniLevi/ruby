@@ -5,6 +5,8 @@ ru:
       logo_title: "Делитесь своими эмоциями"
       home: "Главная"
       help: "Помощь"
+      about: "О сайте"
+      contacts: "Контакты"
       sign_in: "Войти"
       sign_out: "Выйти"
       person: "Я"
@@ -41,7 +43,6 @@ ru:
         new_user?: "Новый пользователь?"
 
   work:
-
       index:
         def_select_theme: "Выберите тему для оценки"
 
@@ -52,8 +53,8 @@ ru:
       button_list_results:
         results_list: "результаты"
 
-      choose_theme_from_arr:
-        select_theme: "выберите тему"
+      choose_theme:
+        select_theme: "Список тем"
 
       images:
         common_value: "средняя оценка"

@@ -3,10 +3,10 @@
     %div
       = link_to image_tag("/assets/ruby.png", alt: "Rails logo", width: "150px")
     %div{:style=>"margin-top:-120px; height:100px; padding:40px; margin-left:25%; text-shadow:0 0 5px #fff; letter-spacing:2px;"}
-      =link_to t('home'), root_path
-      = link_to t('Contacts'), contacts_path
-      = link_to t('about'), about_path
-      = link_to t('help'), help_path
+      =link_to t('.home'), root_path
+      = link_to t('.contacts'), contacts_path
+      = link_to t('.about'), about_path
+      = link_to t('.help'), help_path
       %div{:style=>"float:right; margin-top:-30px;"}
         %p.locale
         = link_to image_tag("/assets/Russia.jpg"), locale: :ru

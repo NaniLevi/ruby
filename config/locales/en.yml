@@ -81,7 +81,7 @@ en:
         select_theme: "select theme ar"
 
       choose_theme:
-        select_theme: "select theme ch"
+        select_theme: "List of themes"
 
       images:
         common_value: "common value"

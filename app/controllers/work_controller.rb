@@ -3,18 +3,20 @@ class WorkController < ApplicationController
   include WorkImage
   def index
     @images_count = Image.all.count
-    # @selected_theme = "Select theme to leave your answer"
+    #selected_theme = "Select theme to leave your answer"
     @selected_theme = t(".def_select_theme")
-    @selected_image_name = 'K акрополю'
+    @selected_image_name = 'facade'
     @values_qty = Value.all.count
     @current_locale = I18n.locale
+
     session[:selected_theme_id] = @selected_theme # to display nothing
   end
 
   def choose_theme
     t=5
     @themes = Theme.all.pluck(:name)
-    respond_to :js
+    logger.info "In WorkController#choose_theme @themes = #{@themes}"
+
   end
 
   def display_theme
@@ -25,10 +27,10 @@ class WorkController < ApplicationController
     current_user_id = current_user.id
 
     if params[:theme] == "-----"#.blank?
-      theme = "Select theme to leave your answer"
+      theme = t(".select_theme") #"Select theme to leave your answer"
       theme_id = 1
       values_qty = Value.all.count.round
-      data = { index: 0, name: 'K акрополю', values_qty: values_qty, file: 'assets/facade.jpg', current_user_id: current_user_id, user_valued: false,
+      data = { index: 0, name: 'facade', values_qty: values_qty, file: 'assets/facade.jpg', current_user_id: current_user_id, user_valued: false,
                common_ave_value: 0, value: 0 }
     else
       theme = params[:theme]
@@ -39,6 +41,8 @@ class WorkController < ApplicationController
     image_data(theme, data)
   end
 
+  # @note: this method should show image without diag
+  #   then - start to calculate diag
   def results_list
     @selected_theme_id = session[:selected_theme_id]
     res_composite_diag = Image.where(theme_id: @selected_theme_id).order("ave_value DESC")
