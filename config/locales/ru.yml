@@ -5,7 +5,7 @@ ru:
       logo_title: "Делитесь своими эмоциями"
       home: "Главная"
       help: "Помощь"
-      about: "О сайте"
+      about: "О_сайте"
       contacts: "Контакты"
       sign_in: "Войти"
       sign_out: "Выйти"
@@ -13,7 +13,7 @@ ru:
       profile: "Моя страница"
       settings: "Настройки"
     footer:
-      about: "О сайте"
+      about: "О_сайте"
       contacts: "Контакты"
       home: "Главная"
       help: "Помощь"
