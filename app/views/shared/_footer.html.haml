@@ -1,13 +1,4 @@
-%footer
-  %div{:style=>"position:fixed; top:580px; width:98%; opacity:0.9; background-color:#9DA1AA; padding:5px;"}
-    %div{:style => "float:right; margin:50px; margin-bottom:50px; margin-top:-50px;" }
-      %a{:href =>"http://www.brainlook.org", :style=>"text-decoration:none; color:fff;"}
-        %img{:alt => "Share to Brainlook", :src => "/assets/BL.png", :title => "Brainlook", :style=>"width:150px; margin-top:-50px" }
-        %div{:style => "margin-left:40px; margin-top:-40px;"}
-          = t('.share_opinion')
-    %div{:style=>"text-align:center; text-shadow:0 0 3px  #fff; word-spacing:30px; line-height:3;"}
-      =link_to t('.home'), root_path
-      =link_to t('.contacts'), contacts_path
-      =link_to t('.about'), about_path
-      =link_to t('.help'), help_path
-      %br
+%footer.footer
+  %div.footer__copyright
+    %span
+    = t ('Copyright © Victoria')

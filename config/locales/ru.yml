@@ -1,29 +1,39 @@
 ru:
-#  test: Привет!
+ # hello: "Привет, мир"
+
   shared:
     header:
-      logo_title: "Делитесь своими эмоциями"
+      logo_title: "Expert!se"
       home: "Главная"
       help: "Помощь"
-      about: "О_сайте"
-      contacts: "Контакты"
       sign_in: "Войти"
       sign_out: "Выйти"
       person: "Я"
       profile: "Моя страница"
       settings: "Настройки"
+#      logged_msg: "Вошел как "
+
     footer:
-      about: "О_сайте"
-      contacts: "Контакты"
-      home: "Главная"
-      help: "Помощь"
+      about: "О сайте"
+      contact: "Контакты"
+      dev_msg: "Сайт в разработке"
+
+  sessions:
+    new:
+      sign_in: "Войти"
+      sign_up: "Зарегистрироваться"
+      email: "E-mail"
+      password: "Пароль"
+      new_user?: "Новый пользователь?"
+
 
   users:
     form:
       name: "Имя"
-      email: "Email"
+      email: "E-mail"
       password: "Пароль"
       password_confirmation: "Подтверждение пароля"
+#      confirmation: "Подтверждение"
       create_account: "Создать мой аккаунт"
 
     new:
@@ -31,54 +41,59 @@ ru:
       back: "Назад"
 
     show:
-      work: "Экспертиза"
+      work: "Приложение"
       email: "Email"
 
-  sessions:
-      new:
-        sign_in: "Войти"
-        sign_up: "Зарегистрироваться"
-        email: "E-mail"
-        password: "Пароль"
-        new_user?: "Новый пользователь?"
-
   work:
-      index:
-        def_select_theme: "Выберите тему для оценки"
 
-      button_theme_select:
-        select_theme_bt: "выбрать тему"
+    index:
+      def_select_theme: "Выберите тему для оценки"
 
-
-      button_list_results:
-        results_list: "результаты"
-
-      choose_theme:
-        select_theme: "Список тем"
-
-      images:
-        common_value: "средняя оценка"
-        total_values: "всего оценок"
-
-        make_decision: "Выберите свою оценку"
-        save_decision: "сохранить"
-
-        share_opinion: "Поделись своим мнением"
+    button_theme_select:
+      select_theme_bt: "выбрать тему"
 
 
-        # titles
-        theme_name: "Тема"
+    button_list_results:
+      results_list: "результаты"
 
-      display_theme:
-        select_theme: "Выберите тему для оценки"
+    choose_theme_from_arr:
+      select_theme: "выберите тему"
+
+    images:
+      common_value: "средняя оценка:"
+      total_values: "всего оценок:"
+
+      make_decision: "Выберите свою оценку:"
+      save_decision: "сохранить"
+
+      share_opinion: "Поделись своим мнением"
 
 
-      results_list:
-        no_values: "Результаты по выбранной теме отсутствуют..."
-        select_theme: "Выберите другую тему"
-        return_to_main: "На главную"
+      # titles
+      theme_name: "Тема"
 
-        # titles
-        page_title: "Перейдите к выбору темы"
+    display_theme:
+      select_theme: "Выберите тему для оценки"
 
 
+    results_list:
+      no_values: "Результаты по выбранной теме отсутствуют..."
+      select_theme: "Выберите другую тему"
+      return_to_main: "На главную"
+      results_rate: "Оценки"
+      results_image-name: "Название"
+      results_image: "Изображение"
+      results_image-value: "Оценка"
+      results_image-date: "Дата"
+
+      # titles
+      page_title: "Перейдите к выбору темы"
+
+
+
+  main:
+    about:
+      about_title: "О сайте"
+
+    contacts:
+      contacts_title: "Контакты"

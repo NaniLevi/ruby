@@ -1,0 +1,32 @@
+@import "mixins"
+
+#picHolder
+  width: 250px
+  height: 240px
+  margin: 10px
+
+input[type='range']
+  -webkit-appearance: none
+  background: linear-gradient(to right, $sea, $violet, $pink)
+  outline: none
+  height: 30px
+  width: 80%
+  margin: 0 auto
+
+input[type="range"]::-webkit-slider-thumb
+  -webkit-appearance: none
+  background: rgba($pale, 0.5)
+  border: 1px solid $violet
+  width: 10px
+  height: 40px
+  &:hover
+    cursor: pointer
+
+// #slider
+//   padding: 0 85px
+
+#chosen-value
+  color: $violet
+  font-weight: bold
+  font-size: 40px
+  margin-left: 10px

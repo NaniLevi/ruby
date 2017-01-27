@@ -1,109 +1,105 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-#  test: Test!!!
-  work:
-    index:
-      def_select_theme: Test!!!
-  hello: "Hello world"
+  #hello: "Hello world"
+
+
 
   shared:
     header:
-      logo_title: "Ruby_on_Rails"
+      logo_title: "Expert!se"
       home: "Home"
       help: "Help"
+      about: "About"
+      contact: "Contacts"
       sign_in: "Sign in"
       sign_out: "Sign out"
       person: "Me"
       profile: "My page"
       settings: "Settings"
+#      logged_msg: "Logged in as "
     footer:
       about: "About"
-      contacts: "Contacts"
+      contact: "Contacts"
+      home: "Home"
+      help: "Help"
+      dev_msg: "App is in Development"
+
+  sessions:
+    new:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      email: "E-mail"
+      password: "Password"
+      new_user?: "New user?"
 
   users:
     form:
       name: "Name"
-      email: "Email"
+      email: "E-mail"
       password: "Password"
       password_confirmation: "Password confirmation"
+#      confirmation: "Подтверждение"
       create_account: "Create my account"
 
     new:
       new_user_sign_up: "New user sign up"
       back: "Back"
 
+
     show:
-      work: "Proceed to work"
+      work: "Application"
       email: "Email"
-
-  sessions:
-      new:
-        sign_in: "Sign in"
-        sign_up: "Sign up"
-        email: "E-mail"
-        password: "Password"
-        new_user?: "New user?"
-
 
   work:
 
-      index:
-        def_select_theme: "Select theme to leave your answer"
+    index:
+      def_select_theme: "Select theme to leave your answer"
 
 
-      button_theme_select:
-        select_theme_bt: "select theme"
+    button_theme_select:
+      select_theme_bt: "select theme"
 
-      button_list_results:
-        results_list: "list results"
+    button_list_results:
+      results_list: "list results"
 
-      choose_theme_from_arr:
-        select_theme: "select theme ar"
+    choose_theme_from_arr:
+      select_theme: "select theme"
 
-      choose_theme:
-        select_theme: "List of themes"
+    choose_theme:
+      select_theme: "select theme"
 
-      images:
-        common_value: "common value"
-        total_values: "total values"
+    images:
+      common_value: "common value:"
+      total_values: "total values:"
 
-        make_decision: "Make your decision"
-        save_decision: "save"
+      make_decision: "Your rate:"
+      save_decision: "save"
 
-        share_opinion: "Share your opinion"
-
-
-        # titles
-        theme_name: "Theme name"
-
-      display_theme:
-        select_theme: "Select theme"
+      share_opinion: "Share your opinion"
 
 
-      results_list:
-        no_values: "No Values results for selected theme..."
-        select_theme: "Select other theme"
-        return_to_main: "Return to main"
+      # titles
+      theme_name: "Theme name"
 
-        # titles
-        page_title: "Go to work area"
+    display_theme:
+      select_theme: "Select theme"
+
+
+    results_list:
+      no_values: "No Values results for selected theme..."
+      select_theme: "Select other theme"
+      return_to_main: "Return to main"
+      results_rate: "Rates"
+      results_image-name: "Image name"
+      results_image: "Image"
+      results_image-value: "Rate"
+      results_image-date: "Date"
+      # titles
+      page_title: "Go to work area"
+
+
+  main:
+    about:
+      about_title: "About"
+
+    contacts:
+      contacts_title: "Contacts"

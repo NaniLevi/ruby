@@ -1,188 +1,207 @@
+
+// get data from controller
 var imageData = '<%= raw @image_data %>';
-var valuesQty = '<%=@image_data[:values_qty] %>';
-$('.left_controls span.total_values h2.total').append().html(valuesQty);
+console.log("IN display_theme: @image_data = " + imageData );
+var valuesQty = '<%= @image_data[:values_qty] %>';
+console.log("IN display_theme: valuesQty = " + valuesQty );
+$('.image__left-menu .total_values h2.total').append().html(valuesQty);
 
 // show theme
 var selectedTheme = '<%= @image_data[:theme] %>';
 
-if( selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == "") {
-    $('.img-left-side').css({"display": "none"});
-    $('.img-right-side').css({"display": "none"});
-    $('.imgage .image_display .image_diag').css({"display": "none"});
-} else {
-    $('.img-left-side').css({"display": "block"});
-    $('.img-right-side').css({"display": "block"});
-    $('.imgage .image_display .image_diag').css({"display": "block"});
+if( selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == ""){
+  $('.img-left-side').css({"visibility": "hidden"});
+  $('.img-right-side').css({"visibility": "hidden"});
+  $('.image .image__display .image__diag').css({"visibility": "hidden"});
+}else{
+  $('.img-left-side').css({"visibility": "visible"});
+  $('.img-right-side').css({"visibility": "visible"});
+  $('.image .image__display .image__diag').css({"visibility": "visible"});
 }
 var userValuedImage = '<%= @image_data[:user_valued] %>';
 
 if(userValuedImage == 1){
-    console.log("3c1 IN IF: userValuedImage == true? == " + userValuedImage);
-    $('.left_controls span.common_value').css({"display": "block"});
-    $('.image .image_display .image_diag').css({"display": "none"});
-    var imageCommonValue = '<%= @image_data[:common_ave_value] %>';
-    console.log("3c2 IN IF: imageCommonValue = " + imageCommonValue);
-    $('.left_controls span.common_value h2.common').append().html(imageCommonValue);
+  console.log("3c1 IN IF: userValuedImage == true? == " + userValuedImage);
+  $('.image__left-menu .common_value').css({"visibility": "visible"});
+  $('.image .image__display .image__diag').css({"visibility": "hidden"});
+  var imageCommonValue = '<%= @image_data[:common_ave_value] %>';
+  console.log("3c2 IN IF: imageCommonValue = " + imageCommonValue);
+  $('.image__left-menu .common_value h2.common').append().html(imageCommonValue);
 
-    var imageValue = '<%= @image_data[:value] %>';
-    $('.image .image_display .image_user_value').append().html(imageValue);
-    $('.image .image_display .image_user_value').css({"display": "block"});
+  var imageValue = '<%= @image_data[:value] %>';
+  $('.image .image__display .image_user_value').append().html(imageValue);
+  $('.image .image__display .image_user_value').css({"visibility": "visible"});
 }else{
-    $('.left_controls span.common_value').css({"display": "none"});
-    $('.image .image_display .image_user_value').css({"display": "none"});
+  $('.image__left-menu .common_value').css({"visibility": "hidden"});
+  $('.image .image__display .image_user_value').css({"visibility": "hidden"});
 }
 
 var currentUserId = '<%= @image_data[:current_user_id] %>';
 console.log("3d IN display_theme: currentUserId = " + currentUserId);
 
-$('.image_display h2.up-theme').append().html(selectedTheme);
+$('.image__display h2.up-theme').append().html(selectedTheme);
 
 //restore button
-$('.selected_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
+$('.select_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
 
 // get data from controller
 var imageCurrentIndex = '<%= @image_data[:index] %>';
+//var firstThemeImagesName = JSON.parse(firstThemeImages)["name"];
 var oneImageName = '<%= @image_data[:name] %>';
 var oneImageFile = '<%= @image_data[:file] %>';
+console.log("3e IN display_theme: oneImageFile = " + oneImageFile);
 var oneImageId = '<%= @image_data[:image_id] %>';
+console.log("3f IN display_theme: oneImageId = " + oneImageId);
 var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
 var selectedThemeId = '<%= @image_data[:theme_id] %>';
 
-$('.image_display h2.up').append().html(oneImageName);
 
+// show name of image
+//var nameImage = selectedImage.slice(0,-4) ;  // put away . file .jpr
+$('.image__display h2.up').append().html(oneImageName);
+
+// show image
 var pathImage = "assets/pictures/" + oneImageFile;
-$(".img-center").attr({title: "Selected image"});
-$(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "selected Image"});
+// $('.img-center').html('<img alt="Selected Image" src="'+ pathImage + '"/>');
+$(".img-center").attr({title: "Selected image" });
+$(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
+
 
 // AJAX call to next image list
 $('.img-right-side').click(function(event) {
-    event.stopImmediatePropagation();
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
 
-    $.ajax({
-        type: "get",
-        url: "api/next_image",
-        data: { index: imageCurrentIndex,
+  $.ajax({
+    type: "get",
+    url: "api/next_image",
+    data: { index: imageCurrentIndex,
             theme_id: selectedThemeId,
             length: themeImagesSize },
-        dataType: 'json'
-    }).done(function (data_return) {
-        imageCurrentIndex = data_return.new_image_index;
-        oneImageName = data_return.name;
-        oneImageFile = data_return.file;
-        oneImageId = data_return.image_id;
-        $('.image_display h2.up').append().html(oneImageName);
-        var pathImage = "assets/pictures/" + oneImageFile;
-        $(".img-center").attr({title: "Selected image" });
-        $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
-
-        var userValuedFlag = data_return.user_valued;
-        if(userValuedFlag  == 1){
-            $('.left_controls span.common_value').css({"display": "block"});
-            var imageValue = data_return.value;
-            $('.image .image_display .image_user_value').append().html(imageValue).css({"display": "block"});
-            $('.image .image_display .image_diag').css({"display": "none"});
-
-            var imageCommonValue = data_return.common_ave_value;
-            $('.left_controls span.common_value h2.common').append().html(imageCommonValue);
-
-            // $('.image .image_display .image_user_value').css({"display": "block"});
-        }else{
-            $('.left_controls span.common_value').css({"display": "none"});
-            $('.image .image_display .image_user_value').css({"display": "none"});
-            $('.image .image_display .image_diag').css({"display": "block"});
-        }
-    })
-        .fail(function (data_return) {
-            console.log("error: data_return = " + data_return);
-        });
-});
-
-// AJAX call to previous image list
-$('.img-left-side').click(function(event) {
-    event.stopImmediatePropagation();
-
-    $.ajax({
-        type: "get",
-        url: "api/prev_image",
-        data: { index: imageCurrentIndex,
-            theme_id: selectedThemeId,
-            length: themeImagesSize },
-        dataType: 'json'
-    }).done(function (data_return) {
+    dataType: 'json'
+  }).done(function (data_return) {
         console.log("success1c:  " + data_return.notice );
         imageCurrentIndex = data_return.new_image_index;
         oneImageName = data_return.name;
         oneImageFile = data_return.file;
         oneImageId = data_return.image_id;
-        $('.image_display h2.up').append().html(oneImageName);
+        $('.image__display h2.up').append().html(oneImageName);
         var pathImage = "assets/pictures/" + oneImageFile;
         $(".img-center").attr({title: "Selected image" });
         $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
 
         var userValuedFlag = data_return.user_valued;
         if(userValuedFlag  == 1){
-            $('.left_controls span.common_value').css({"display": "block"});
-            var imageValue = data_return.value;
-            $('.image .image_display .image_user_value').append().html(imageValue);
-            $('.image .image_display .image_diag').css({"display": "none"});
-            var imageCommonValue = data_return.common_ave_value;
-            $('.left_controls span.common_value h2.common').append().html(imageCommonValue);
-            $('.image .image_display .image_user_value').css({"display": "block"});
+          $('.image__left-menu .common_value').css({"visibility": "visible"});
+          var imageValue = data_return.value;
+          $('.image .image__display .image_user_value').append().html(imageValue).css({"visibility": "visible"});
+          $('.image .image__display .image__diag').css({"visibility": "hidden"});
+
+          var imageCommonValue = data_return.common_ave_value;
+          $('.image__left-menu .common_value h2.common').append().html(imageCommonValue);
+
+          $('.image .image__display .image_user_value').css({"visibility": "visible"});
         }else{
-            $('.left_controls span.common_value').css({"display": "none"});
-            console.log("7 IN ELSE: userValuedImage == false? == " + userValuedFlag);
-            $('.image .image_display .image_user_value').css({"display": "none"});
-            $('.image .image_display .image_diag').css({"display": "block"});
+          $('.image__left-menu .common_value').css({"visibility": "hidden"});
+          $('.image .image__display .image_user_value').css({"visibility": "hidden"});
+          $('.image .image__display .image__diag').css({"visibility": "visible"});
         }
-    })
-        .fail(function (data_return) {
-            console.log("error: data_return = " + data_return);
-        });
+
+      })
+      .fail(function (data_return) {
+        console.log("error: data_return = " + data_return);
+      });
+});
+
+
+
+// AJAX call to previous image list
+$('.img-left-side').click(function(event) {
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+
+  $.ajax({
+    type: "get",
+    url: "api/prev_image",
+    data: { index: imageCurrentIndex,
+      theme_id: selectedThemeId,
+      length: themeImagesSize },
+    dataType: 'json'
+  }).done(function (data_return) {
+        console.log("success1c:  " + data_return.notice );
+        imageCurrentIndex = data_return.new_image_index;
+        oneImageName = data_return.name;
+        oneImageFile = data_return.file;
+        oneImageId = data_return.image_id;
+
+        $('.image__display h2.up').append().html(oneImageName);
+        var pathImage = "assets/pictures/" + oneImageFile;
+        $(".img-center").attr({title: "Selected image" });
+        $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
+
+        var userValuedFlag = data_return.user_valued;
+        if(userValuedFlag  == 1){
+          $('.image__left-menu .common_value').css({"visibility": "visible"});
+          var imageValue = data_return.value;
+          $('.image .image__display .image_user_value').append().html(imageValue);
+          $('.image .image__display .image__diag').css({"visibility": "hidden"});
+          var imageCommonValue = data_return.common_ave_value;
+          $('.image__left-menu .common_value h2.common').append().html(imageCommonValue);
+          $('.image .image__display .image_user_value').css({"visibility": "visible"});
+        }else{
+          $('.image__left-menu .common_value').css({"visibility": "hidden"});
+          console.log("7 IN ELSE: userValuedImage == false? == " + userValuedFlag);
+          $('.image .image__display .image_user_value').css({"visibility": "hidden"});
+          $('.image .image__display .image__diag').css({"visibility": "visible"});
+
+        }
+      })
+      .fail(function (data_return) {
+        console.log("error: data_return = " + data_return);
+      });
+
 });
 
 
 // AJAX call to next image list
 $('button.button__results.save').unbind( "click" ).click(function(event) {
-    console.log("clicked: button__results.save: ");
-    event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
-    var displayValue = $('#chosen_value')[0].innerHTML;
-    console.log("displayValue = " + displayValue );
+  console.log("clicked: button__results.save: ");
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+  var displayValue = $('#chosen-value')[0].innerHTML;
+  console.log("displayValue = " + displayValue );
 
-    $.ajax({
-        type: "get",
-        url: "api/save_value",
-        data: { image_id: oneImageId,
+  $.ajax({
+    type: "get",
+    url: "api/save_value",
+    data: { image_id: oneImageId,
             theme_id: selectedThemeId,
             value: displayValue
-        },
-        dataType: 'json'
-    }).done(function (data_return) {
+    },
+    dataType: 'json'
+  }).done(function (data_return) {
         console.log("success1c:  " + data_return.notice );
         var userImageValue = data_return.user_value;
-        $('.image .image_display .image_user_value').append().html(userImageValue);
+        $('.image .image__display .image_user_value').append().html(userImageValue);
 
         var userValuedFlag = data_return.user_valued;
         if(userValuedFlag  == 1){
-            console.log("5 IN IF: userValuedFlag == true? == " + userValuedFlag);
-            $('.left_controls span.common_value').css({"display": "block"});
-            $('.image .image_display .image_diag').css({"display": "none"});
+          console.log("5 IN IF: userValuedFlag == true? == " + userValuedFlag);
+          $('.image__left-menu .common_value').css({"visibility": "visible"});
+          $('.image .image__display .image__diag').css({"visibility": "hidden"});
 
-            var valuesQty = data_return.values_qty;
-            $('.left_controls span.total_values h2.total').append().html(valuesQty);
+          var valuesQty = data_return.values_qty;
+          $('.image__left-menu .total_values h2.total').append().html(valuesQty);
 
-            var imageCommonValue = data_return.common_ave_value;
-            console.log("6 IN save_value: imageCommonValue = " + imageCommonValue);
-            $('.left_controls span.common_value h2.common').append().html(imageCommonValue);
+          var imageCommonValue = data_return.common_ave_value;
+          console.log("6 IN save_value: imageCommonValue = " + imageCommonValue);
+          $('.image__left-menu .common_value h2.common').append().html(imageCommonValue);
 
-            $('.image .image_display .image_user_value').css({"display": "block"});
+          $('.image .image__display .image_user_value').css({"visibility": "visible"});
         }else{
-            $('.left_controls span.common_value').css({"display": "none"});
-            console.log("7 IN ELSE: save_value userValuedImage == false? == " + userValuedFlag);
-            $('.image .image_display .image_diag').css({"display": "block"});
+          $('.image__left-menu .common_value').css({"visibility": "hidden"});
+          console.log("7 IN ELSE: save_value userValuedImage == false? == " + userValuedFlag);
+          $('.image .image__display .image__diag').css({"visibility": "visible"});
         }
-    })
-        .fail(function (data_return) {
-            console.log("error: data_return = " + data_return);
-        });
+      })
+      .fail(function (data_return) {
+        console.log("error: data_return = " + data_return);
+      });
 });
-

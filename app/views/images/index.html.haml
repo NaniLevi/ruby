@@ -5,7 +5,6 @@
     %tr
       %th Name
       %th File
-      %th Ave value
       %th
       %th
       %th
@@ -15,7 +14,6 @@
       %tr
         %td= image.name
         %td= image.file
-        %td= image.ave_value
         %td= link_to 'Show', image
         %td= link_to 'Edit', edit_image_path(image)
         %td= link_to 'Destroy', image, :method => :delete, :data => { :confirm => 'Are you sure?' }

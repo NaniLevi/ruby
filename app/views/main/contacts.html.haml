@@ -1,3 +1,7 @@
-.container{:style=>"text-align:center; height:400px;"}
-  %h2 Main#contacts
-  %p Find me in app/views/main/contacts.html.haml
+- provide(:title, "Contacts")
+
+%h1= t('.contacts_title')
+
+.about-copy
+  %h1.list
+    Приложение Expertise разработано ...

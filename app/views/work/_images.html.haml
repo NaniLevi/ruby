@@ -1,39 +1,55 @@
-.container{:style=>"padding-left:50px;"}
-  -#=t('test')
-  .image
-    .row
-      .col-md-3
-        .left_controls
-          .select_theme
-        .image_display
-          = render 'work/button_theme_select', locale: @current_locale
-          %h4{:title => t('.theme_name'), :style=>"margin-top:-10px; margin-left:20px;"}
-            #{@selected_theme}
-            %br
-            %div{:style=>"height:30px"}
-              %button{:style=>"width:20px; height:20px; border-radius:10px; background-color: #99958C; margin-left:-30px; margin-top:50px;"}
-              %button{:style=>"width:20px; height:20px; border-radius:10px; background-color: #99958C; margin-left:710px; margin-top:-220px;"}
-            %div{:style=>"box-shadow:0 0 15px #0E294B; width:700px; height:500px; "}
-              %img{:alt => "Default Image", :src => 'assets/facade.jpg', :title => "Default Image", :style =>"width:700px; height:500px;"}
-              %p{:style=>"margin-left:50px; margin-top:-70px; color:#000;letter-spacing:2px;"}
-                #{@selected_image_name}
-              .image_user_value{:title => "Expert value"}
-          .row.diag
-            .col-md-12
-              .image_diag
-                #chosen_value 50
-                %h3.down{:title => "Value scale"}
-                  = t('.make_decision')
-                %button.button__results.save{:style=>"margin:20px; padding:15px; width:300px; box-shadow:0 0 5px #0E294B; background-color:#B0B7C6;"}
-                  %a{'data-remote' => "true", :format => "js", :href => "#", :title => "Save image diag results"}
-                    = t('.save_decision')
-                %br
-                %span.left 5%
-                #slider
-                  %input#slide{:max => "100", :min => "5", :value => "50",
-                             :onchange => "updateSlider(this.value)",
-                             :step => "5", :type => "range"}
-                %span.right 100%
-                %br
-                %br
-                = render 'work/button_list_results'
+
+.image
+  .image__left-menu
+
+    .select_theme
+      = render 'work/button_theme_select', locale: @current_locale
+      %br
+
+    .modal_list_results
+      = render 'work/button_list_results'
+      %br
+
+    %div.common_value
+      %span
+        = t('.common_value')
+      %h2.common{:title => "Common value"}
+    %div.total_values
+      %span
+        = t('.total_values')
+      %h2.total{:title => "Total values"} #{@values_qty.round}
+
+  .image__display
+    %h2.up-theme{:title => t('.theme_name')}
+      #{@selected_theme}
+
+    %h2.up{:title => "Image file name"}
+      -##{@selected_image_name}
+
+    .image__wrapper
+      .img-left-side
+        %h3{:title => "list to previous image"}
+          %i.fa.fa-caret-left.strong
+
+      .img-center{:title => "Default image"}
+        %img{:alt => "Default Image", :src => 'assets/pictures/vietnam.jpg', :title => "Default image",:style => "width:100%; height:100%;" }
+        .image_user_value{:title => "Expert value"}
+
+      .img-right-side
+        %h3{:title => "list to next image"}
+          %i.fa.fa.fa-caret-right
+
+    .image__diag
+      %div.diag-up
+        %span.diag-title{:title => "Value scale"}
+          = t(".make_decision")
+        -#main var
+        %span#chosen-value 50
+
+      #slider
+        %input#slide{:max => "100", :min => "10", :value => "50",
+                     :onchange => "updateSlider(this.value)",
+                     :step => "10", :type => "range"}
+      %button.button__results.save{:title => "Save image diag results"}
+        %a{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+          = t(".save_decision")

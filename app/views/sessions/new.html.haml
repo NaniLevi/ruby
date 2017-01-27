@@ -1,16 +1,15 @@
 - content_for(:title, "Sign in")
 
-.container
-  %h3= t('.sign_in')
-
-  .row
-    .span6.offset3
-      = form_for(:session, url: sessions_path) do |f|
-        = f.label  t('.email')
-        = f.text_field :email
-        = f.label t('.password')
-        = f.password_field :password
-        = f.submit t('.sign_in'), class: "btn btn-large btn-primary"
-      %p.sign_up_link
-        = t('.new_user?')
-        #{link_to t('.sign_up'), signup_path}
+.sign-in-page
+  %h1= t('.sign_in')
+  = form_for(:session, url: sessions_path) do |f|
+    = f.label  t('.email')
+    = f.text_field :email
+    %br
+    = f.label t('.password')
+    = f.password_field :password
+    %br
+    = f.submit t('.sign_in'), class: "btn app-button"
+  .sign-up-link
+    %span= t('.new_user?')
+    =link_to t('.sign_up'), signup_path, class: "btn app-button"

@@ -1,62 +1,22 @@
-$('.image .image_display .image_diag').css({"display": "none"});
-$('.img-left-side').css({"display": "none"});
-$('.img-right-side').css({"display": "none"});
+console.log("IN choose_theme.js" );
+
+$('.image .image___display .image_diag').css({"visibility": "hidden"});
+$('.img-left-side').css({"visibility": "hidden"});
+$('.img-right-side').css({"visibility": "hidden"});
 
 
 
 // to check whether the target is the content-area itself or a child of the content-area.
 $(document).click(function(e){
-    if($(e.target).is(".select_theme") || $(e.target).closest(".select_theme").length) {
-        console.log(": In doc.click = IN side content area"  );
-    }
-    else {
-        console.log(": In doc.click = OUT side content area"  );
-        $('.form_select').css({"display": "none"});
-        $('.select_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
-    }
+  if($(e.target).is(".select_theme") || $(e.target).closest(".select_theme").length) {
+      console.log(": In doc.click = IN side content area"  );
+  }
+  else {
+    console.log(": In doc.click = OUT side content area"  );
+    $('.form_select').css({"visibility": "hidden"});
+    $('.select_theme').empty().html("<%= j render 'work/button_theme_select' -%>");
+  }
 });
 
 
 $('.select_theme').empty().html("<%= j render 'choose_theme_from_arr' -%>");
-
-
-//
-////When the user clicks anywhere outside of the modal, close it
-//window.onclick = function(event) {
-//  if (event.target == selectTheme) {
-////      resultsList.style.visibility = "hidden";
-//    $('.select_theme').css({"display": "none"});
-//
-//    console.log("IN window.onclick: selectTheme display: none  /   .style.visibility = hidden");
-//  }
-//
-//};
-//
-//$(document).ready(function(){
-//  $('.select_theme').click(function(event){
-//    console.log('click - form');
-//    event.stopPropagation();
-//  });
-//  $('html').click(function(event){
-//    console.log('click - body');
-//    //hide the form if the body is clicked
-//    $('.select_theme').css('display','none');
-//  });
-////  $('button').click(function(event){
-////    $('.form-container').toggle();
-////    event.stopPropagation();
-////  });
-//
-//});
-//
-//
-//$(function() {
-//  $('.select_theme').on('click', function() {
-//    $('.select_theme').css({"display": "none"});
-//  });
-//})();
-//
-//
-//
-
-

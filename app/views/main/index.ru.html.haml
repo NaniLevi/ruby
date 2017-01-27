@@ -1,9 +1,25 @@
 - content_for(:title,  "Index")
 
-.container{:style=>"text-align:center;  height:400px;"}
-    %h2 Добро пожаловать в Experteese
-    %h3Пример приложения на Ruby on Rails.
-    %p
-        = link_to "Экспертиза", work_path
-    %p
-        = link_to "Регистрация", signup_path
+%h1
+  -#Experteese - sample App
+
+
+
+-#.main_page
+-#= image_tag("logo/square/with_title.svg",   {:width => "80", :height =>"80", :class => "opinion_image_preview ttip", title: "Предварительный просмотр"})
+
+
+.center.jumbotron
+  %h1
+    Добро пожаловать!
+    %br
+    %br
+    %h2
+      Чтобы продолжить - нажми:
+  - if signed_in?
+    = link_to "Приложение", work_path, class: "btn app-button"
+  - else
+    = link_to "Регистрация", signup_path, class: "btn app-button"
+
+
+

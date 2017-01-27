@@ -1,0 +1,41 @@
+@import "mixins"
+
+
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass here: http://sass-lang.com/
+
+i
+  height: 1.5em
+  font-size: 1.5em
+
+.button__left
+  .modalBtn
+    margin-top: .1em
+  .theme
+    margin-top: 1.2em
+
+.button__results.save
+  display:  block
+  padding: 25px 45px
+  margin: 40px auto
+  border: 1px solid $pink
+  background: transparent
+  font-size: 1.5em
+  line-height: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  a
+    text-decoration: none
+    color: $sea
+    position: relative
+    text-align: center
+    font-family: 'Poiret One', cursive
+
+.button__results.save:hover:not(:disabled)
+  background: $pink
+  a
+    text-decoration: none
+    color: $white

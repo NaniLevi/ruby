@@ -1,3 +1,4 @@
-%button{:style=>"margin:20px; padding:15px; width:300px; box-shadow:0 0 5px #0E294B; background-color:#B0B7C6;"}
-  = link_to t('.select_theme_bt'), choose_theme_path, :title => "Select theme from your device folder", locale: @current_locale, :format => "js", remote: true
+-#@current_locale = #{@current_locale.inspect}
 
+%button.button__left.theme
+  = link_to t('.select_theme_bt'), choose_theme_path, :title => "Select theme from your device folder", locale: @current_locale, :format => "js", remote: true

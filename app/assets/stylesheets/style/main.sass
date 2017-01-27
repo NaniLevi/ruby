@@ -1,0 +1,446 @@
+@import "mixins"
+
+.container
+  width: 100%
+  min-width: 430px
+  margin-top: -30px
+  padding: 0px 10%
+  flex-grow: 1
+  box-sizing: border-box
+  font-family: 'Poiret One', cursive
+  font-size: 1.5em
+
+.jumbotron
+  margin: 60px auto
+  background: transparent
+  h1
+    font-size: 60px
+  .app-button
+    width: 200px
+    text-align: center
+
+.app-button
+  padding: 30px 45px
+  margin-top: 60px
+  border: 1px solid $pink
+  background: transparent
+  font-size: 1.5em
+  color: #3E5F8A
+  cursor: pointer
+  border-radius: 0
+  font-family: 'Poiret One', cursive
+  &:hover
+    background: rgba($pink, 0.7)
+    color: $white
+
+.show-user
+  &__mail
+    margin: 30px 0
+
+.image
+  display: flex
+  &__wrapper
+    display: flex
+  &__left-menu
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    color: $violet
+    height: 100%
+    width: 100%
+    flex: 1
+    padding-top: 130px
+    .button__left
+      border: 1px solid $pink
+      background: rgba($pink, 0.8)
+      font-size: 24px
+      line-height: 1
+      width: 100%
+      padding: 20px 0
+      outline: none
+      text-transform: uppercase
+      a
+        color: $white
+        font-family: 'Poiret One', cursive
+      &:hover
+        background: transparent
+        a
+          color: $sea
+
+    .common_value, .total_values
+      text-align: center
+      position: relative
+      color: $sea
+      font-size: 1.4em
+      font-weight: bold
+      top: 4em
+      visibility: hidden
+      height: 3em
+      h2
+        color: $sea
+        font-size: 28px
+        display: inline-block
+
+    .total_values
+      visibility: visible
+
+    input.load_image
+      color: $sea
+
+    #theme
+      width: 100%
+      height: 65px
+      border: $pink solid 1px
+      outline: none
+      font-size: 24px
+      background: transparent
+      text-transform: uppercase
+      font-family: 'Poiret One', cursive
+      padding: 0 0 0 120px
+      option
+        font-size: 20px
+
+    .select_theme
+      display: block
+      button, input
+        outline: none
+
+      .form_select
+        display: block
+        text-align: center
+        input
+          padding: 0
+          cursor: pointer
+
+    .select_image
+      display: block
+      height: 10em
+      margin-top: .1em
+
+      .form_select
+        display: block
+        color: #4863be
+        width: 80%
+        height: 5.5em
+        position: relative
+        text-align: center
+        left: 11%
+        font-size: 1.5em
+        margin-top: 2.5em
+        input
+          color: #3475BE
+          background: rgba(222, 165, 242, 0)
+          padding: 0
+          font-size: .9em
+          height: 1.5em
+          -webkit-transition: background-color 0.3s ease-in-out
+          -moz-transition: background-color 0.3s ease-in-out
+          -o-transition: background-color 0.3s ease-in-out
+          transition: background-color 0.3s ease-in-out
+          cursor: pointer
+    .image_input_form
+      height: 18em
+      font-size: 1.5em
+      color: #4863be
+      display: block
+      position: relative
+      width: 80%
+      text-align: center
+      left: 11%
+      margin-top: 1.5em
+      input
+        color: #3475BE
+        background-color: #F5F5F5
+        padding: 0
+        font-size: .9em
+        height: 1.5em
+        -webkit-transition: background-color 0.3s ease-in-out
+        -moz-transition: background-color 0.3s ease-in-out
+        -o-transition: background-color 0.3s ease-in-out
+        transition: background-color 0.3s ease-in-out
+        cursor: text
+      .file_url
+        padding: 0
+        position: relative
+        margin-bottom: 1.15em
+        opacity: 0.4
+        input
+          background-color: #F5F5F5
+      .file_url:hover
+        opacity: 1
+        input[type="text"]:hover
+          border: 1px solid #438F43
+      .file_device
+        padding: 0
+        position: relative
+        opacity: 0.4
+        input
+          background-color: #F5F5F5
+      .file_device:hover
+        opacity: 1
+      .button__choose input
+        background-color: rgba(222, 165, 242, 0)
+        cursor: pointer
+    .select_image_hide
+      display: none
+
+  &__display
+    flex: 2
+    display: flex
+    flex-direction: column
+    .up-theme
+      text-align: center
+      color: $violet
+      margin: 10px
+      font-size: 2em
+    .up
+      text-align: center
+      color: $sea
+      cursor: default
+      width: 100%
+      margin: 10px 0 30px
+      font-size: 28px
+
+    .img-left-side
+      visibility: hidden
+    h3
+      color: $sea
+      text-align: center
+      font-size: 2.6em
+      cursor: pointer
+    i:hover:not(:disabled)
+      color: $violet
+    .img-right-side
+      visibility: hidden
+      // margin-left: -70%
+
+    @-webkit-keyframes fadeIn
+      from
+        opacity: 0.3
+      to
+        opacity: 1
+
+    @keyframes fadeIn
+      from
+        opacity: 0.3
+      to
+        opacity: 1
+
+    .img-center
+      display: block
+      -webkit-animation: fadeIn 1s
+      animation: fadeIn 1s
+      opacity: 1
+      position: relative
+      text-align: center
+      object-fit: fill
+      box-shadow: 1px 6px 62px -1px rgba($black, 0.6)
+      width: 80%
+      margin: 0 auto
+      .img-title
+        display: none
+
+      h2.up
+        color: #555fbe
+      .img-title
+        display: block
+        box-sizing: content-box
+        color: #c3ffff
+        position: absolute
+        top: 2em
+        margin: 0
+        height: 100%
+        width: 100%
+        text-align: center
+        font-size: 2.7em
+        line-height: 3em
+
+
+    .image_user_value
+      text-align: center
+      color: #ffffff
+      font-weight: bold
+      font-size: large
+      padding-top: .6em
+      //padding-bottom: 10px
+      display: none
+      left: 45%
+      top: -5%
+      //border: 25px solid #ECEBFA   ///////////////////////// 30px solid rgb(48, 250, 41)
+      background-image: -webkit-linear-gradient(top, #cccccc, #d00346)
+      background-image: -o-linear-gradient(top, #cccccc, #d00346)
+      background-image: -moz-linear-gradient(top, #cccccc, #d00346)
+      width: 47px   /////////////////////////
+      height: 47px /////////////////////////
+      border-radius: 22px   /////////////////////////
+      //-webkit-animation: turning_cw 5s infinite
+      //-moz-animation: turning_cw 5s infinite
+      //animation: turning_cw 5s infinite
+      position: relative   /////////////////////////
+
+      &:hover
+        -webkit-box-shadow: 0 0 40px 15px #dd56e0
+        -moz-box-shadow: 0 0 40px 15px #dd56e0
+        box-shadow: 0 0 40px 15px #dd56e0
+
+  &__diag
+    visibility: hidden
+    position: relative
+    height: auto
+    text-align: center
+
+    .indicator
+      background: #deb2ad
+      text-align: center
+
+      .outer-circle
+        display: none
+
+        left: 10.5%
+        border: 25px solid #ECEBFA
+        width: 30px
+        height: 30px
+        border-radius: 25px
+        position: relative
+        &:hover
+          -webkit-box-shadow: 0 0 30px 15px #453D9B
+          -moz-box-shadow: 0 0 30px 15px #453D9B
+          box-shadow: 0 0 30px 15px #453D9B
+
+      .outer-circle.show
+        display: block
+        border-radius: 30px
+        border: 30px solid #30fa29
+        left: 43.75%
+
+    .diag-up
+      margin: 30px 0
+    .diag-title
+      display: inline-block
+      font-size: 2em
+      color: $sea
+
+    .scale
+      display: none
+      width: 100%
+      background-color: lightgrey
+      line-height: .1em //$img-small-height
+      position: relative
+      top: .9em
+      background: linear-gradient(to right, rgba(247, 27, 27, 0.68), rgba(165, 165, 0, 0.68), rgba(27, 247, 27, 0.68))
+
+      .small_img_box
+        display: block
+        width: 1.35em
+        height: 100%
+        left: 20.75%
+        vertical-align: top
+        background-color: #b5d31c
+        position: relative
+        padding: 0
+        margin: 0
+        %img
+          display: none
+          vertical-align: top
+          width: 100%
+          height: 100%
+          // line-height: $img-small-height
+          padding: 0
+          margin: 0
+
+
+.results
+  &-page
+    table
+      border-collapse: collapse
+      font-size: 24px
+      margin: 30px 0
+      width: 100%
+    th
+      color: $white
+      margin: 20px 0
+      background: rgba($pink, 0.8)
+      text-align: center
+      padding: 10px 0
+    td
+      text-align: center
+    tr
+      padding: 10px
+      margin-bottom: 30px
+    img
+      margin-top: 10px
+
+  &-title
+    font-size: 28px
+    color: $violet
+
+.sign-in-page
+  form
+    width: 400px
+    input[type="text"], input[type="password"]
+      width: 100%
+      margin: 10px 0
+  h1
+    font-size: 60px
+    color: $violet
+    margin-bottom: 15px
+  .app-button
+    width: 100%
+    margin-top: 10px
+    padding: 25px 45px
+  .sign-up-link
+    margin: 60px 0 0
+    display: flex
+    flex-direction: column
+    height: 120px
+    justify-content: space-between
+    width: 400px
+    .app-button
+      margin-top: 10px
+      width: auto
+
+
+.fa-caret-right, .fa-caret-left
+  position: relative
+
+.fa-caret-right
+  left: -30px
+.fa-caret-left
+  left: 30px
+
+.new_user
+  width: 400px
+  .field
+    display: flex
+    justify-content: space-between
+    margin: 30px 0
+  &-title
+    color: $violet
+    font-size: 60px
+  .app-button
+    margin-top: 0
+    width: 100%
+
+.back-link
+  margin-top: 30px
+  color: $violet
+  font-size: 24px
+
+.show-user, .results-page
+  font-size: 24px
+  .app-button
+    width: 200px
+    text-align: center
+.all-users
+  h1
+    font-size: 60px
+    color: $violet
+    margin: 0 0 30px 0
+  th
+    margin: 10px 0
+  td
+    border: 1px solid $violet
+    padding: 10px 15px
+  .app-button
+    width: 400px
+    text-align: center

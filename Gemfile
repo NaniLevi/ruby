@@ -11,7 +11,7 @@ gem 'haml-rails'  # 0.9.0 Installed
 gem 'bootstrap-sass', '3.3.6' # Installed 3.3.6
 
 # Use ActiveModel has_secure_password
-#gem 'bcrypt'
+gem 'bcrypt-ruby', '~> 3.1.0'
 
 # # Image loading with remote
 # gem 'remotipart', '~> 1.2'

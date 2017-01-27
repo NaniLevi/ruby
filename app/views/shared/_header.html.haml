@@ -1,18 +1,31 @@
-.header
-  %div{:style=>"background-color:#C7D0CC; opacity:0.8;  height:100px;"}
-    %div
-      = link_to image_tag("/assets/ruby.png", alt: "Rails logo", width: "150px")
-    %div{:style=>"margin-top:-120px; height:100px; padding:40px; margin-left:25%; text-shadow:0 0 5px #fff; word-spacing:25px;"}
-      =link_to t('.home'), root_path
-      = link_to t('.contacts'), contacts_path
-      = link_to t('.about'), about_path
-      = link_to t('.help'), help_path
-      %div{:style=>"float:right; margin-top:-30px;"}
-        %p.locale
-        = link_to image_tag("/assets/Russia.jpg"), locale: :ru
-        = link_to image_tag("/assets/United_Kingdom.jpg"), locale: :en
-        %b
-          = I18n.locale
-
-
-
+%header.navbar.header
+  .logo{:style=>" width: 48%; margin-left: -110px;"}
+    = link_to image_tag("/assets/ruby.png", alt: "Rails logo")
+    %div{:style=>"margin-top: -200px; margin-left: 10px;"}
+      = link_to t('.logo_title'), root_path, class: "header__logo"
+  %nav.header__menu
+    %ul.header__menu-list
+      %li.header__menu-link
+        = link_to t('.help'), help_path
+      - if signed_in?
+        %li.logged.header__menu-link
+          %div#fat-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              = gravatar_for current_user
+              %p
+                #{current_user.email}
+                %b.caret
+            %ul.dropdown-menu
+              %li= link_to t('.profile'), current_user
+              %li= link_to t('.settings'), '#'
+              %li.divider
+              %li
+                = link_to t('.sign_out'), signout_path, method: "delete"
+      - else
+        %li.header__menu-link
+          = link_to t('.sign_in'), signin_path
+  %div.locale
+    = link_to image_tag("Russia.jpg", alt: "",  style: "width: 10%; height: 10%", title: "Русский" ), locale: :ru
+    = link_to image_tag("USA.jpg", alt: "",  style: "width: 12%; height: 12%", title: "English"), locale: :en
+    %b
+      = I18n.locale

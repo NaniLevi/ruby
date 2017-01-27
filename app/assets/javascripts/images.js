@@ -1,7 +1,16 @@
-function updateSlider(slideAmount) {
-var displayValue = document.getElementById("chosen_value");
-console.log("IN updateSlider:  - slideAmount = " + slideAmount );
-displayValue.innerHTML = slideAmount;
 
-var pic = document.getElementById("pic");
+
+function updateSlider(slideAmount) {
+  //get the element
+  var displayValue = document.getElementById("chosen-value");
+  //show the amount
+  // console.log("IN updateSlider:  - slideAmount = " + slideAmount );
+  displayValue.innerHTML = slideAmount;
+
+  //get the element
+  // var pic = document.getElementById("pic");
+  //set the dimensions
+  //   pic.style.width = slideAmount + "%";
+  //   pic.style.height = slideAmount + "%";
+  // return slideAmount;
 }

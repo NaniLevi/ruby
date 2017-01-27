@@ -9,9 +9,22 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//
+
 //= require_self
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require turbolinks
+
+// Notifications
+// = require libs/jquery.noty.packaged.min.js
+// = require notifications.js
+
+
 //= require bootstrap
-//= require bootstrap-sprockets
+//= require_tree ./channels
+
 //= require_tree .
+
+

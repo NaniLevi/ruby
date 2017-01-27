@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
+  # caches_action :index
+  
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
+    # expires_in 5.minutes
+    # sleep 15e
+
+    @users = User.all_cached
+    # @stats = Rails.cache.stats.first.last
   end
 
   # GET /users/1
   # GET /users/1.json
+  # SERIALIZED !! FOR API DEMONSTRATION
   def show
+    user = User.find(params[:id])
+    # render json: user
   end
 
   # GET /users/new
@@ -25,13 +36,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
-      if @user.save
-        # sign_in @user
+     if @user.save
+        sign_in @user
+        flash.now[:notice] = "Welcome to the Experteese - sample App!"
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
+        flash.now[:alert] = "Bad registration"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -70,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

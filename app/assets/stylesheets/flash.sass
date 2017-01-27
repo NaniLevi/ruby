@@ -1,0 +1,38 @@
+@import "mixins"
+
+.flash
+  padding:  10px
+  margin-bottom:  0
+
+  &.notice
+    background-color: $pale
+    color: $violet
+    height: 3em
+    margin-top: .5em
+
+  &.alert
+    background-color: $pink
+    color: $white
+
+
+  &.warning
+    background-color: $violet
+    color: $white
+
+  &.error
+    background-color: $pink
+    color: $white
+
+  .close
+    float: right
+    color: $white
+
+  a
+    color: $violet
+
+    &:hover
+      text-decoration: none
+
+
+  .container
+    font-size: 1.5em

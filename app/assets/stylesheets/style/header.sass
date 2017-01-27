@@ -1,0 +1,113 @@
+@import "mixins"
+
+.header
+  width: 100%
+  max-height: 170px
+  margin: 0 auto
+  padding: 10px 5%
+  background: rgba($pale, 0.5)
+  box-sizing: border-box
+  text-transform: uppercase
+  display: flex
+  align-items: center
+  &__logo
+    flex: 1
+    font-size: 100px
+    color: #3E5F8A
+    text-align: center
+    letter-spacing: 4px
+    font-family: 'Poiret One', cursive
+    padding: 0 60px
+    &:hover
+      color: $violet
+  &__menu
+    flex: 2
+    font-family: 'Poiret One', cursive
+    &-list
+      display: flex
+      justify-content: space-around
+      align-items: center
+      padding: 0
+      margin: 0
+      height: 70px
+      font-size: 1em
+      li
+        list-style-type: none
+      a
+        text-align: center
+        color: $sea
+    &-link
+      flex: 1
+      padding: 0 10px
+      margin: 0 15px
+      height: 100%
+      border: 1px solid $pink
+      background: transparent
+      font-size: 1.5em
+      line-height: 1
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      &:hover
+        background: rgba($pink, 0.8)
+        a
+          color: $white
+.locale
+  display: flex
+  align-items: center
+  height: 100px
+  width: 140px
+  justify-content: space-between
+  a
+    width: 50px
+  img
+    min-width: 100%
+  &-current
+    text-align: center
+
+.dropdown
+  width: 100%
+  &-toggle
+    float: left
+    width: 100%
+  &-menu
+    width: 100%
+    border: 0
+    border-radius: 0
+    top: 30px
+    a
+      color: $sea !important
+      &:hover
+        color: $sea
+
+.gravatar
+  float: left
+  width: 20px
+  height: 20px
+  margin-right: 5px
+
+.dropdown
+  position: relative
+  &-menu
+    display: none
+    background: rgba($pale, 0.9)
+    position: absolute
+    padding: 30px 0px
+    top: 46px
+    li
+      padding: 10px 0
+      &:hover
+        background: $pink
+        a
+          color: $white !important
+    .divider
+      padding: 0
+      background: rgba($pink, 0.6)
+      width: 100%
+      height: 1px
+      margin: 10px 0
+
+.dropdown.open
+  .dropdown-menu
+    display: block

@@ -1,22 +1,23 @@
-%h1 Listing users
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th
-      %th
-      %th
+%div.all-users
 
-  %tbody
-    - @users.each do |user|
+  %h1 Список пользователей
+
+  %table
+    %thead
       %tr
-        %td= user.name
-        %td= user.email
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Имя
+        %th Эл.почта
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.name
+          %td= user.email
+          %td= link_to 'Показать', user
+          %td= link_to 'Редактировать', edit_user_path(user)
+          %td= link_to 'Удалить', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New User', new_user_path
+  = link_to 'Новый пользователь', new_user_path, :class => "btn app-button"
