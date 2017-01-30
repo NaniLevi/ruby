@@ -3,7 +3,7 @@ ru:
 
   shared:
     header:
-      logo_title: "Expert!se"
+      logo_title: "Будь экспертом!"
       home: "Главная"
       help: "Помощь"
       sign_in: "Войти"
@@ -47,7 +47,7 @@ ru:
   work:
 
     index:
-      def_select_theme: "Выберите тему для оценки"
+      def_select_theme: "Сделайте выбор"
 
     button_theme_select:
       select_theme_bt: "выбрать тему"
@@ -71,7 +71,6 @@ ru:
 
       # titles
       theme_name: "Тема"
-
     display_theme:
       select_theme: "Выберите тему для оценки"
 

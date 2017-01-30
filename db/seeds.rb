@@ -8,9 +8,9 @@
 
 User.delete_all
 User.reset_pk_sequence
-User.create([{name: 'Nani', email:'nani@mail.com'},
-             {name: 'Lika', email:'lika@mail.com'},
-             {name: 'Ivan', email:'ivan@mail.com'}])
+User.create([{name: 'Nani', email:'nani@mail.com', password: "222222", password_confirmation: "222222"},
+             {name: 'Lika', email:'lika@mail.com', password: "222222", password_confirmation: "222222"},
+             {name: 'Ivan', email:'ivan@mail.com', password: "222222", password_confirmation: "222222"}])
 
 Image.delete_all
 Image.reset_pk_sequence

@@ -5,7 +5,7 @@ en:
 
   shared:
     header:
-      logo_title: "Expert!se"
+      logo_title: "Be an expert!"
       home: "Home"
       help: "Help"
       about: "About"
@@ -52,7 +52,7 @@ en:
   work:
 
     index:
-      def_select_theme: "Select theme to leave your answer"
+      def_select_theme: Make the choice
 
 
     button_theme_select:

@@ -4,7 +4,6 @@ module WorkHelper
   #
   def image_data(theme, data)
     @image_data = {}
-
     @image_data[:values_qty] = data[:values_qty]
     @image_data[:theme] = theme
     @image_data[:current_user_id] = data[:current_user_id]

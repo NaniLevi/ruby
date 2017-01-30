@@ -4,7 +4,8 @@
   width: 100%
   max-height: 170px
   margin: 0 auto
-  padding: 10px 5%
+  padding-bottom: 50px
+  padding-left: 5%
   background: rgba($pale, 0.5)
   box-sizing: border-box
   text-transform: uppercase
@@ -12,14 +13,16 @@
   align-items: center
   &__logo
     flex: 1
-    font-size: 100px
-    color: #3E5F8A
+    font-size: 70px
+    color: $sea
     text-align: center
     letter-spacing: 4px
     font-family: 'Poiret One', cursive
-    padding: 0 60px
+    font-weight: bold
+    white-space: nowrap
+    text-shadow: 0 0 15px $sea
     &:hover
-      color: $violet
+      color: #3E5F8A
   &__menu
     flex: 2
     font-family: 'Poiret One', cursive
@@ -35,13 +38,13 @@
         list-style-type: none
       a
         text-align: center
-        color: $sea
+        color: $violet
     &-link
       flex: 1
       padding: 0 10px
       margin: 0 15px
       height: 100%
-      border: 1px solid $pink
+      box-shadow: 0 0 3px $violet
       background: transparent
       font-size: 1.5em
       line-height: 1
@@ -50,7 +53,7 @@
       justify-content: center
       cursor: pointer
       &:hover
-        background: rgba($pink, 0.8)
+        background: rgba($pink, 0.7)
         a
           color: $white
 .locale
@@ -76,6 +79,7 @@
     border: 0
     border-radius: 0
     top: 30px
+
     a
       color: $sea !important
       &:hover
@@ -97,6 +101,7 @@
     top: 46px
     li
       padding: 10px 0
+      z-index: 0
       &:hover
         background: $pink
         a

@@ -1,7 +1,7 @@
 %header.navbar.header
-  .logo{:style=>" width: 48%; margin-left: -110px;"}
+  .logo{:style=>" width: 35%; margin-left: -110px;"}
     = link_to image_tag("/assets/ruby.png", alt: "Rails logo")
-    %div{:style=>"margin-top: -200px; margin-left: 10px;"}
+    %div{:style=>"margin-top: -150px; margin-left: 107px;"}
       = link_to t('.logo_title'), root_path, class: "header__logo"
   %nav.header__menu
     %ul.header__menu-list
@@ -13,7 +13,7 @@
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               = gravatar_for current_user
               %p
-                #{current_user.email}
+                #{current_user.name}
                 %b.caret
             %ul.dropdown-menu
               %li= link_to t('.profile'), current_user
