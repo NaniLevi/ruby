@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20170130003331) do
     t.integer  "theme_id"
   end
 
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string   "name"
     t.integer  "qty_items"
@@ -33,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170130003331) do
     t.string   "email"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "age"
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "password"
