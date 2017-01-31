@@ -2,8 +2,11 @@
   %div.footer__copyright
     %span.author
     = t ('Copyright © NaniLevi')
-    %div{:style => "float: right;" }
+    %div{:style => "margin-top:-150px;" }
       %a{:href =>"http://www.brainlook.org", :style=>"text-decoration:none; color:fff;"}
-        %img{:alt => "Share to Brainlook", :src => "/assets/BL.png", :title => "Brainlook", :style=>"width:150px; margin-top:-50px" }
+        %img{:alt => "Share to Brainlook", :src => "/assets/BL.png", :title => "Brainlook", :style=>"width:150px;" }
         %div{:style => "margin-left:40px; margin-top:-40px; color:#fff;"}
           = t(".share_opinion")
+  .bin_nav
+    = link_to t('.about'), about_path
+    = link_to t('.contacts'), contacts_path

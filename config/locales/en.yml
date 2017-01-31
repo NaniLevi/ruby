@@ -18,10 +18,12 @@ en:
 #      logged_msg: "Logged in as "
     footer:
       about: "About"
-      contact: "Contacts"
+      contacts: "Contacts"
       home: "Home"
       help: "Help"
-      dev_msg: "App is in Development"
+
+    contacts:
+      dev_msg: "App is in development"
 
   sessions:
     new:
@@ -37,7 +39,6 @@ en:
       email: "E-mail"
       password: "Password"
       password_confirmation: "Password confirmation"
-#      confirmation: "Подтверждение"
       create_account: "Create my account"
 
     new:

@@ -15,8 +15,10 @@ ru:
 
     footer:
       about: "О сайте"
-      contact: "Контакты"
-      dev_msg: "Сайт в разработке"
+      contacts: "Контакты"
+
+    contacts:
+      dev_msg: "Приложение Expertise в разработке"
 
   sessions:
     new:

@@ -59,7 +59,7 @@ Image.create([{name: 'Bella Principessa', file: 'Bella Principessa.jpg', theme_i
               {name: 'Мутная река', file: 'Мутная река.jpg', theme_id:5},
               {name: 'На прогулке', file: 'На прогулке.jpg', theme_id:5},
               {name: 'Песочный бульвар', file: 'Песочный бульвар.jpg', theme_id:5},
-              {name: 'Полдень на площади ', file: 'Полдень на площади .jpg', theme_id:5},
+              {name: 'Полдень на площади', file: 'Полдень на площади.jpg', theme_id:5},
               {name: 'Серенады', file: 'Серенады.jpg', theme_id:5},
               {name: 'Автопортрет с Саскией', file: 'Автопортрет с Саскией.jpg', theme_id:3 },
               {name: 'Возвращение блудного сына', file: 'Возвращение блудного сына.jpg', theme_id:3 },
