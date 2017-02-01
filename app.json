@@ -1,0 +1,16 @@
+{
+  "name": "ruby",
+  "description": "RoR application",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
